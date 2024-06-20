@@ -7,17 +7,11 @@ const UploadImage = () => {
 
     const [ responseMessage , setresponseMessage ] = useState("")
 
-    const [ Formdata , setformdata] = useState({
-        nama : "",
-        image : null
-    })
-
-    
-
+    const [ Formdata , setformdata] = useState({ nama : "", image : null })
 
 
     const handleSubmit =  async (e) => {
-        e.preventDefault()
+            e.preventDefault()
 
             const datas = new FormData()
             datas.append('nama' ,  Formdata.nama)
@@ -26,8 +20,8 @@ const UploadImage = () => {
         try {
             const response = await axios.post(`${import.meta.env.VITE_LOCAL_PORT_SERVER}/upload` , datas)
 
-                setresponseMessage(response.data.message)
-                setformdata({ nama : "" , image : null})
+            setresponseMessage(response.data.message)
+            setformdata({ nama : "" , image : null})
 
 
              

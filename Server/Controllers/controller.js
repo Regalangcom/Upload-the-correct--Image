@@ -7,7 +7,6 @@ export function Upload(req, res) {
     const nama = req.body.nama; 
     const upload_transaction = req.file.filename; 
 
-    // Simpan data ke database
     const sql = 'INSERT INTO form_image (nama, upload_transaction) VALUES (?, ?)';
     connectionDb.query(sql, [nama, upload_transaction], (err, result) => {
         if (err) {
